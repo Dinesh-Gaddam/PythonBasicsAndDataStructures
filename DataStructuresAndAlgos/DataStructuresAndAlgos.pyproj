@@ -1,0 +1,64 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>b885600e-5325-4e86-8dff-81012893ae83</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>Lesson5_BinarySearchTree.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <Name>DataStructuresAndAlgos</Name>
+    <RootNamespace>DataStructuresAndAlgos</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="CollectionsExample.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Instance_Class_StaticMethods.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lesson1_PythonBasicsAssigment.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lesson1_PythonPracticeAssignment.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lesson2_LinkedList.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lesson2_Quee.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lesson2_Stack.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lesson5_BinarySearchTree.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Recursive.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SearchTechniques.py">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+  <!-- Uncomment the CoreCompile target to enable the Build command in
+       Visual Studio and specify your pre- and post-build commands in
+       the BeforeBuild and AfterBuild targets below. -->
+  <!--<Target Name="CoreCompile" />-->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+</Project>
