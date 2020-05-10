@@ -6,84 +6,61 @@ class Node(object):
         self.right = None
 
 
-class BinaryTree(object):
+class BinarySearchTree(object):
     def __init__(self, root):
         self.root = Node(root)
 
-    def preorder_print(self,start):
+    def insert(self, new_val):
+        self.inserthelper(self.root,new_val)
+       
+    def inserthelper(self,start,new_val):
         if start:
-            if start.left and start.right:
-                print(start.value)
+            if start.value > new_val:                
+                if start.left:
+                    print('calling left of node value={0}',start.value)
+                    self.inserthelper(start.left,new_val)
+                else:
+                     print('inserting left of node value={0}',start.value)
+                     start.left = Node(new_val)
+            elif start.value < new_val:
                 
-                self.preorder_print(start.left)
-                self.preorder_print(start.right)
-            elif start.left:
-                print(start.value)
-                self.preorder_print(start.left)                
-            elif start.right:
-                print(start.value)
-                self.preorder_print(start.right)
-            else:
-                print(start.value)
-                return
-        else:            
-            return
+                if start.right:
+                    print('calling right of node value={0}',start.value)
+                    self.inserthelper(start.right,new_val)
+                else:
+                    print('inserting right of node value={0}',start.value)
+                    start.right = Node(new_val)
+        else:
+            raise Exception('Unable to insert the element:{}'.format(new_val))
 
-    def preorder_search(self,start,find_val):
+    def searchHelper(self,start,find_val):
         if start:
-            if start.left and start.right:
-                print("Node left and Right,Node current value=",start.value)
-                if start.value == find_val:
-                    return 1
-                else:
-                    self.preorder_search(start.left,find_val)
-                    self.preorder_search(start.right,find_val)
-
-            elif start.left:
-                print("Node left only ,Node current value=",start.value)
-                if start.value == find_val:
-                    return 1
-                else:
-                    self.preorder_search(start.left,find_val)
-                    
-            elif start.right:
-                print("Node Right only ,Node current value=",start.value)
-                if start.value == find_val:
-                    return 1
-                else:
-                    self.preorder_search(start.right,find_val)
+            print(start.value)
+            if start.value == find_val:
+                return True
+            elif start.value < find_val:
+                 return self.searchHelper(start.right,find_val)
             else:
-                if start.value == find_val:
-                    return 1
-                else:
-                    return
-        else:            
-            return
-
-    def print_tree(self):
-        self.preorder_print(self.root)
-
+                return self.searchHelper(start.left,find_val)
+                
+        return False
           
 
     def search(self, find_val):
-        if self.preorder_search(self.root,find_val) == 1:
-            return True
-        else:
-            return False
+        return  self.searchHelper(self.root,find_val)
 
 
 
 
 # Set up tree
-tree = BinaryTree(1)
-tree.root.left = Node(2)
-tree.root.right = Node(3)
-tree.root.left.left = Node(4)
-tree.root.left.right = Node(5)
+tree = BinarySearchTree(4)
+tree.insert(2)
+tree.insert(1)
+tree.insert(3)
+tree.insert(5)
 
-#tree.print_tree()
 
-print(tree.search(4))
+print(tree.search(3))
 
 print(tree.search(6))
 
